@@ -1,0 +1,16 @@
+{
+    "python.testing.pytestArgs": [
+        "FinalProjectCS499"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./FinalProjectCS499",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.promptToConfigure": false
+}
