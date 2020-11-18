@@ -5,9 +5,13 @@
 # import csv library
 import csv
 
-#implementation of login class to use for login verification
 class Login: 
-    # user_find method to verify the user is in txt file.
+    """
+    Login class is set up to process through user log in. It will first check to make sure username is in our login,
+    once this is checked it will save that username and password, then ask password. After this it will verify that 
+    password is correct before returning. This will only allow the user to attempt login 3 times total before quiting.
+    """
+    
     def user_find(self):
         """Requests User Id and verifies it exists in users.txt 
             Returns the userid if found, else returns None """
@@ -16,7 +20,7 @@ class Login:
             count = 2
             while count >= 0:
                 file.seek(0)  # Repositions read pointer to start of file
-                user = input("Please enter your username: ")
+                user = input("\nPlease enter your username: ")
                 user_found = None
                 for row in file_reader:
                     if row[0].lower() == user.lower():

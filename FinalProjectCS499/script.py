@@ -8,36 +8,38 @@ from login import Login
 from customer import Customer
 
 
-# Welcome screen
+
 def welcome():
+    """ Welcome screen for program """
     print('============================================')
     print('================== Wecome ==================')
     print('============================================')
     print('=========== User Management System =========')
     print('============================================')
 
-# Start function designed to implement the login screen.
+
 def start():
+    """Start function designed to implement the login screen."""
     # Function to initiate login operations
     log_req = input("Login to your account (Y/N) ")
     if log_req.lower() == 'y':  # This ensures that if the user types 
                                # upper or lower case, it is detected
         log_proc = Login()
         if log_proc.user_find():
-            print('Welcome to the System')
+            print('\nWelcome to the System\n')
         else:
             print('Please contact your administrator to setup your account')
     else:
         print ('Goodbye')
 
-# Menu to make selection
 def menu():
+    """Menu to make selection"""
     print('============================================')
     print('================== Menu ====================')
     print('============================================\n')
     print('1. New customer: ')
     print('2. Existing customer: ')
-    print('3. Exit')
+    print('3. Exit\n')
     
     customer_proc = Customer()
     user_input = input('Please make your selection using a numerical value: ')
@@ -55,15 +57,15 @@ def menu():
     return
 
 
-# Thank you message to exit program
 def exit_program():
+    """ Thank you message to exit program """
     print('===============================================')
     print("Thank you for using the User Management System!")
     print('===============================================')
     return
 
-# Program basic flow.
 def program():
+    """Program basic flow."""
     welcome()
     start()
     menu()

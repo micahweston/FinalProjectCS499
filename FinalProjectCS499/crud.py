@@ -11,17 +11,20 @@ conn = sqlite3.connect("user_management.db")
 cursor = conn.cursor()
 
 class Crud:
+    """
+    This is our database class. This class is designed to allow the user to create, read, update, 
+    and delete user information from the database. This is linked directly to the customer.py module.
+    """
     def __init__(self):
-        from customer import Customer
-        self.customer_proc = Customer()
+        pass
 
-    # Update customer information in database
     def create(self, id, name, email, address, employer):
+        """ Update customer information in database. """
         cursor.execute('''INSERT INTO customers VALUES(self.id, self.name, self.email, self.address, self.employer)''')
         conn.commit()
 
-    # Read customer information in database
     def read(self, user_input):
+        """ Read customer information in database. """
         self.user_input = user_input
         # Test user input to make sure it is valid
         if self.user_input == 1:
@@ -30,12 +33,12 @@ class Crud:
             cursor.execute("SELECT * FROM customers").fetchall()
         else:
             print("Invalid selection: Please select the number that corresponds to \nyour selection")
-            self.customer_proc.view_customer()
+            return
 
-    # Update customer information in database
     def update(self):
+        """ Update customer information in database. """
         pass
 
-    # Delete customer information in database
     def delete(self):
+        """ Delete customer information in database. """
         pass
