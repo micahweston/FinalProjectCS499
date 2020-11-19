@@ -12,5 +12,6 @@
         "-p",
         "*test.py"
     ],
-    "python.testing.promptToConfigure": false
+    "python.testing.promptToConfigure": false,
+    "python.pythonPath": "C:\\Users\\micah2\\anaconda3\\python.exe"
 }
