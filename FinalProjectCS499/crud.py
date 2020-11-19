@@ -4,8 +4,6 @@
 
 # import databases, and database connections
 import pandas as pd
-
-
 import sqlite3
 conn = sqlite3.connect("user_management.db")
 cursor = conn.cursor()
