@@ -25,8 +25,22 @@ class Customer:
         Existing customer process. Will be linked to search_customer, view_customer, edit_customer, 
         and delete_customer methods.
         """
-        print("Existing Customer Test")
-        self.view_customer()
+        print("========================================================")
+        print("================= Existing Customers ===================\n")
+        print("1. View Customer")
+        print("2. Update Customer")
+        print("3. Delete Customer\n")
+        user_input = input("Please select your option: ")
+        user_input = int(user_input)
+        if user_input == 1:
+            self.view_customer()
+        elif user_input == 2:
+            self.edit_customer()
+        elif user_input == 3:
+            self.delete_customer()
+        else:
+            print("Not a valid input")
+
 
     def new_customer(self): 
         """
@@ -66,8 +80,8 @@ class Customer:
 
     def delete_customer(self):
         """ Delete customer method will link to delete feature in Crud class"""
-        pass
+        print("Not built yet")
 
     def edit_customer(self):
         """ Edit customer method will link to update feature in Crud class"""
-        pass
+        print("Not built yet")
