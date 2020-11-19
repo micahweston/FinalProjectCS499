@@ -3,11 +3,14 @@
 # User Management System
 
 # import additional files
-from hash_map import HashMap
 from login import Login
 from customer import Customer
+import pandas as pd
 
-
+# import databases, and database connections
+import sqlite3
+conn = sqlite3.connect("user_management.db")
+cursor = conn.cursor()
 
 def welcome():
     """ Welcome screen for program """
@@ -70,6 +73,11 @@ def program():
     start()
     menu()
 
+customers = [(101, 'Joe Frank', 'joe@ymail.com', '1234 Yorktown Ave. New York, 10001', 'Vivint'), 
+(102, 'Nancy Jull', 'nancy@ymail.com', '1254 Something Ave. New York, 10001', 'Google'), 
+(103, 'George Williams', 'george@ymail.com', '12554 York Ave. New York, 10001', 'Yahoo'), 
+(104, 'Billie Elish', 'billie@ymail.com', '1232 Penn Ave. New York, 10001', 'Apple'),
+(105, 'Sam York', 'sam@ymail.com', '15553 Penn Ave. New York, 10001', 'Apple')] 
 
 program()
 

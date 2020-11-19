@@ -28,12 +28,13 @@ class Crud:
         self.user_input = user_input
         # Test user input to make sure it is valid
         if self.user_input == 1:
-            cursor.execute("SELECT * FROM customers").fetchone()
+            customer = cursor.execute("SELECT * FROM customers").fetchone()
         elif self.user_input == 2:
-            cursor.execute("SELECT * FROM customers").fetchall()
+            customer = cursor.execute("SELECT * FROM customers").fetchall()
         else:
             print("Invalid selection: Please select the number that corresponds to \nyour selection")
             return
+        return print(customer)
 
     def update(self):
         """ Update customer information in database. """
