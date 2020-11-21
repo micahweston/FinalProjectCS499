@@ -92,9 +92,10 @@ class Customer:
         print("2. View all customers:\n")
         # Collect user selection
         user_input = input("How many customers would you like to see? ")
+        print("")
         user_input = int(user_input)
         self.crud_proc.read(user_input)
-        user_input = input("Would you like to view another customer? (Y/N)")
+        user_input = input("\nWould you like to view another customer? (Y/N) ")
         if user_input.lower() == 'y':
             self.view_customer()
         elif user_input.lower() == 'n':
