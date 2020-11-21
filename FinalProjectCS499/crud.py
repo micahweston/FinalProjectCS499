@@ -20,6 +20,8 @@ class Crud:
         self.email = email
         self.address = address
         self.employer = employer
+
+        # Inserts new customer into database.
         new_customer = [(self.id, self.name, self.email, self.address, self.employer)]
         cursor.executemany('''INSERT INTO customers VALUES(?, ?, ?, ?, ?)''', new_customer)
         conn.commit()
@@ -32,16 +34,20 @@ class Crud:
         if self.user_input == 1:
             df = pd.read_sql_query(""" SELECT * FROM customers;""", conn)
             return print(df.tail(1))
-        elif self.user_input == 2:
+        if self.user_input == 2:
             df = pd.read_sql_query(""" SELECT * FROM customers;""", conn)
             return print(df)
-        else:
-            print("Invalid selection: Please select the number that corresponds to \nyour selection")
-            return
+        return
         
 
-    def update(self):
+    def update(self, id, name, email, address, employer):
         """ Update customer information in database. """
+        self.id = id
+        self.name = name
+        self.email = email
+        self.address = address
+        self.employer = employer
+
         cursor.execute('''''')
         conn.commit()
         return

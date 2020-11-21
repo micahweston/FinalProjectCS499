@@ -87,7 +87,7 @@ class Customer:
                 print("\nPlease try again at a later time!")
                 return
 
-    # View Customer info from database. Using CRUD file.
+    
     def view_customer(self):
         """ 
         View customer from database, gives option to view newest customer or view all customers. 
