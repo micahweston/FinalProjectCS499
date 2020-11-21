@@ -26,7 +26,8 @@ class Customer:
         and delete_customer methods.
         """
         print("========================================================")
-        print("================= Existing Customers ===================\n")
+        print("================= Existing Customers ===================")
+        print("========================================================\n")
         print("1. View Customer")
         print("2. Update Customer")
         print("3. Delete Customer\n")
@@ -46,8 +47,10 @@ class Customer:
         """
         New customer process. Will be linked to add_customer method.
         """
-        print("New Customer Test")
-        pass
+        print("========================================================")
+        print("==================== New Customers =====================")
+        print("========================================================\n")
+        self.add_customer()
 
     def search_customer(self):
         """ Process search feature in database. Will be based off of id or last name. """
@@ -55,7 +58,28 @@ class Customer:
 
     def add_customer(self):
         """ Add customer to database"""
-        pass
+        # create variables needed to save customer info to add to database.
+        cust_id, cust_name, cust_email, cust_address, cust_employeer = '', '', '', '', ''
+
+        # Get customer information
+        cust_id = input("Please enter new ID (cannot be used already): ")
+        cust_name = input("Please enter customer name: ")
+        cust_email = input("Pleae enter customer email: ")
+        cust_address = input("Please enter customer address: ")
+        cust_employeer = input("Please enter customer employeer: ")
+
+        # Verify information given
+        print(f"Please verify that customer information is valid? \n\nNew ID: {cust_id}")
+        print(f"Custmer Name: {cust_name} \nCustomer Email: {cust_email} \nCustomer Address: {cust_address} \nCustomer's Employeer: {cust_employeer}")
+        user_input = input("\nIs the information correct? (Y/N)")
+        if user_input.lower() == 'y':        
+            self.crud_proc.create(cust_id, cust_name, cust_email, cust_address, cust_employeer)
+        else:
+            new_input = input("Would you like to enter the information again? (Y/N)")
+            if new_input.lower() == 'y':
+                self.add_customer()
+            else:
+                print("\nPlease try again at a later time!")
 
     # View Customer info from database. Using CRUD file.
     def view_customer(self):

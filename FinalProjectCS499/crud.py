@@ -15,8 +15,15 @@ class Crud:
     """
     def create(self, id, name, email, address, employer):
         """ Update customer information in database. """
-        cursor.execute('''INSERT INTO customers VALUES(self.id, self.name, self.email, self.address, self.employer)''')
+        self.id = id
+        self.name = name
+        self.email = email
+        self.address = address
+        self.employer = employer
+        new_customer = [(self.id, self.name, self.email, self.address, self.employer)]
+        cursor.executemany('''INSERT INTO customers VALUES(?, ?, ?, ?, ?)''', new_customer)
         conn.commit()
+        return
 
     def read(self, user_input):
         """ Read customer information in database. """
@@ -35,8 +42,12 @@ class Crud:
 
     def update(self):
         """ Update customer information in database. """
-        pass
+        cursor.execute('''''')
+        conn.commit()
+        return
 
     def delete(self):
         """ Delete customer information in database. """
-        pass
+        cursor.execute('''''')
+        conn.commit()
+        return

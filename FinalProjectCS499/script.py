@@ -53,7 +53,7 @@ def menu():
     elif user_input == 2:
         customer_proc.existing_customer()
     elif user_input == 3:
-        exit_program()
+        return
     else:
         print('Invalid choice, please select the number corresponding to the selection:')
         menu()
@@ -72,6 +72,7 @@ def program():
     welcome()
     start()
     menu()
+    exit_program()
 
 customers = [(101, 'Joe Frank', 'joe@ymail.com', '1234 Yorktown Ave. New York, 10001', 'Vivint'), 
 (102, 'Nancy Jull', 'nancy@ymail.com', '1254 Something Ave. New York, 10001', 'Google'), 
