@@ -30,7 +30,8 @@ class Customer:
         print("========================================================\n")
         print("1. View Customer")
         print("2. Update Customer")
-        print("3. Delete Customer\n")
+        print("3. Delete Customer")
+        print('4. Exit\n')
         user_input = input("Please select your option: ")
         user_input = int(user_input)
         if user_input == 1:
@@ -39,6 +40,8 @@ class Customer:
             self.edit_customer()
         elif user_input == 3:
             self.delete_customer()
+        elif user_input == 4:
+            return
         else:
             print("Not a valid input")
 
@@ -49,7 +52,7 @@ class Customer:
         """
         print("========================================================")
         print("==================== New Customers =====================")
-        print("========================================================\n")
+        print("========================================================")
         self.add_customer()
 
     def search_customer(self):
@@ -71,6 +74,8 @@ class Customer:
         # Verify information given
         print(f"Please verify that customer information is valid? \n\nNew ID: {cust_id}")
         print(f"Custmer Name: {cust_name} \nCustomer Email: {cust_email} \nCustomer Address: {cust_address} \nCustomer's Employeer: {cust_employeer}")
+
+        # Ask if information is correct. Based on answer will run add_customer() again.
         user_input = input("\nIs the information correct? (Y/N)")
         if user_input.lower() == 'y':        
             self.crud_proc.create(cust_id, cust_name, cust_email, cust_address, cust_employeer)
@@ -80,6 +85,7 @@ class Customer:
                 self.add_customer()
             else:
                 print("\nPlease try again at a later time!")
+                return
 
     # View Customer info from database. Using CRUD file.
     def view_customer(self):
@@ -89,12 +95,22 @@ class Customer:
         print("========================================================")
         print("================= Read Customer Info ===================")
         print("1. View newest customer:")
-        print("2. View all customers:\n")
+        print("2. View all customers:")
+        print('3. Exit\n')
+
         # Collect user selection
-        user_input = input("How many customers would you like to see? ")
+        user_input = input("Please make a selection: ")
         print("")
         user_input = int(user_input)
-        self.crud_proc.read(user_input)
+        if user_input == 1 or user_input == 2:
+            self.crud_proc.read(user_input)
+        elif user_input == 3:
+            return
+        else:
+            print("Not a valid input.")
+            self.view_customer()
+        
+        # After return from crud.py we will ask if customer wants to view more customers.
         user_input = input("\nWould you like to view another customer? (Y/N) ")
         if user_input.lower() == 'y':
             self.view_customer()
