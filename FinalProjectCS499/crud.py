@@ -21,7 +21,7 @@ class Crud:
         self.address = address
         self.employer = employer
 
-        # Inserts new customer into database.
+        # Inserts new customer into database.a
         new_customer = [(self.id, self.name, self.email, self.address, self.employer)]
         cursor.executemany('''INSERT INTO customers VALUES(?, ?, ?, ?, ?)''', new_customer)
         conn.commit()
@@ -52,8 +52,10 @@ class Crud:
         conn.commit()
         return
 
-    def delete(self):
+    def delete(self, id):
         """ Delete customer information in database. """
+        self.id = id
+        
         cursor.execute('''''')
         conn.commit()
         return
