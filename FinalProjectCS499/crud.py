@@ -23,7 +23,7 @@ class Crud:
 
         # Inserts new customer into database.a
         new_customer = [(self.id, self.name, self.email, self.address, self.employer)]
-        cursor.executemany('''INSERT INTO customers VALUES(?, ?, ?, ?, ?)''', new_customer)
+        cursor.executemany('''INSERT INTO customers VALUES(?, ?, ?, ?, ?);''', new_customer)
         conn.commit()
         return
 
@@ -40,22 +40,20 @@ class Crud:
         return
         
 
-    def update(self, id, name, email, address, employer):
+    def update(self, task):
         """ Update customer information in database. """
-        self.id = id
-        self.name = name
-        self.email = email
-        self.address = address
-        self.employer = employer
+        self.task = task
 
-        cursor.execute('''''')
+        sql = '''UPDATE customers SET name = ?, email = ?, address = ?, 
+        employeer = ? WHERE id = ?;'''
+        cursor.execute(sql, task)
         conn.commit()
         return
 
     def delete(self, id):
         """ Delete customer information in database. """
-        self.id = id
         
-        cursor.execute('''''')
+        sql = ''' DELETE FROM customers WHERE id IS ?;'''
+        cursor.execute(sql, id)
         conn.commit()
         return
