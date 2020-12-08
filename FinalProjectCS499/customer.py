@@ -121,8 +121,55 @@ class Customer:
 
     def delete_customer(self):
         """ Delete customer method will link to delete feature in Crud class"""
-        print("Not built yet")
+        print("========================================================")
+        print("=================== Delete Customer ====================")
+        print("========================================================")
+        view_customer_input = input("View customers to delete? (Y/N) ")
+        if view_customer_input.lower() == 'y': 
+            self.crud_proc.read(2)
+
+        delete_id = input("\nPlease enter the ID of the customer you would like to delete: ")
+        confirmation = input(f"The customer you would like to delete has an id of {delete_id}, is that correct? (Y/N) ")
+        if confirmation.lower() == 'y':
+            self.crud_proc.delete((delete_id,))
+        else:
+            print("Please enter the correction customer ID:")
+            self.delete_customer()
+
+        user_input = input("Would you like to delete another customer? (Y/N) ")
+        if user_input.lower() == 'y':
+            self.edit_customer()
+        else:
+            print("Returning to menu")
+            return
 
     def edit_customer(self):
         """ Edit customer method will link to update feature in Crud class"""
-        print("Not built yet")
+        print("========================================================")
+        print("=================== Update Customer ====================")
+        print("========================================================")
+        view_customer_input = input("View customers to update? (Y/N) ")
+        if view_customer_input.lower() == 'y': 
+            self.crud_proc.read(2)
+        
+        update_id = input("\nPlease enter the ID you want to update: ")
+        update_name = input("Please enter the updated Name (If name stays the same, please enter same name): ")
+        update_email = input("Please enter the updated Email (If email stays the same, please enter the same email): ")
+        update_address = input("Please enter the updated Address (If address stays the same, please enter the same address): ")
+        update_employer = input("Please enter the updated Employer (If employer stays the same, please enter the same employer): ")
+
+        print(f"\nYou entered the id to update as: {update_id}, name to update {update_name}, email to update {update_email}, address to update {update_address}, employer to update {update_employer}.")
+        
+        user_input = input("Is the updated information and ID to update correct? (Y/N) ")
+        if user_input.lower() == 'y':
+            self.crud_proc.update((update_name, update_email, update_address, update_employer, update_id))
+        else:
+            print("Please enter the updated information again: \n")
+            self.edit_customer()
+        
+        user_input = input("Would you like to edit another customer? (Y/N) ")
+        if user_input.lower() == 'y':
+            self.edit_customer()
+        else:
+            print("Returning to menu")
+            return

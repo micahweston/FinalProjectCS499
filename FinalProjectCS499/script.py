@@ -57,7 +57,7 @@ def menu():
     else:
         print('Invalid choice, please select the number corresponding to the selection:')
         menu()
-    return
+    menu()
 
 
 def exit_program():
