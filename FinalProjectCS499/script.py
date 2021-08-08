@@ -12,6 +12,7 @@ import sqlite3
 conn = sqlite3.connect("user_management.db")
 cursor = conn.cursor()
 
+# Welcome screen
 def welcome():
     """ Welcome screen for program """
     print("========================================================")
@@ -20,7 +21,7 @@ def welcome():
     print('================= User Management System ===============')
     print("========================================================\n")
 
-
+# Login function
 def start():
     """Start function designed to implement the login screen."""
     # Function to initiate login operations
@@ -35,6 +36,7 @@ def start():
     else:
         print ('Goodbye')
 
+# Menu to be seen after proper login
 def menu():
     """Menu to make selection"""
     print("========================================================")
@@ -59,7 +61,7 @@ def menu():
         menu()
     menu()
 
-
+# Exit message
 def exit_program():
     """ Thank you message to exit program """
     print('===============================================')
@@ -67,6 +69,7 @@ def exit_program():
     print('===============================================')
     return
 
+# Initialize main program
 def program():
     """Program basic flow."""
     welcome()
@@ -74,11 +77,13 @@ def program():
     menu()
     exit_program()
 
+# initial load of customers to database 
 customers = [(101, 'Joe Frank', 'joe@ymail.com', '1234 Yorktown Ave. New York, 10001', 'Vivint'), 
 (102, 'Nancy Jull', 'nancy@ymail.com', '1254 Something Ave. New York, 10001', 'Google'), 
 (103, 'George Williams', 'george@ymail.com', '12554 York Ave. New York, 10001', 'Yahoo'), 
 (104, 'Billie Elish', 'billie@ymail.com', '1232 Penn Ave. New York, 10001', 'Apple'),
 (105, 'Sam York', 'sam@ymail.com', '15553 Penn Ave. New York, 10001', 'Apple')] 
 
+# Start Program
 program()
 

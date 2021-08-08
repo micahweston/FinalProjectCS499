@@ -57,7 +57,9 @@ class Customer:
 
     def search_customer(self):
         """ Process search feature in database. Will be based off of id or last name. """
+        print("TO-DO Create Search feature")
         pass
+        
 
     def add_customer(self):
         """ Add customer to database"""
